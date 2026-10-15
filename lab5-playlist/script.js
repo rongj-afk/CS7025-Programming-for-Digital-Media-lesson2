@@ -21,7 +21,7 @@ const library = [
     ["Because of Art",["Circle of Light","Hold on","Fied Up"]],
     ["Ivan Issa",["Serenidade","Shine","No Logo"]],
     ["Marsh",["Come Together","Nemora","All Night Long"]],
-  ]]
+  ]],
 
   ["Electronic", [
     ["Daft Punk", ["Get Lucky", "One More Time", "Around the World", "Harder, Better, Faster, Stronger"]],
@@ -34,7 +34,7 @@ const library = [
     ["U2", ["With or Without You", "One", "Beautiful Day"]],
     ["The Cranberries", ["Zombie", "Linger", "Dreams"]],
     ["Thin Lizzy", ["Whiskey in the Jar", "The Boys Are Back in Town"]],
-    ["Hozier", ["Take Me to Church", "Work Song"]]
+    ["Hozier", ["Take Me to Church", "Work Song"]],
     ["Westlife",["My life","I Lay My Love on You"]]
   ]]
 ];
@@ -53,6 +53,7 @@ let playlistNumber = 0;
 
 
 function buildGenreCheckboxes() {
+ // console.log(library)
   library.forEach(function (genre, index) {
     const label = document.createElement("label");
     label.className = "genre-chip";
@@ -62,7 +63,7 @@ function buildGenreCheckboxes() {
     checkbox.value = index;
     checkbox.checked = true; // all genres selected by default
     checkbox.addEventListener("change", updateAvailableInfo);
-
+//console.log(genre[NAME]);
     label.appendChild(checkbox);
     label.append(genre[NAME]);
     genreListEl.appendChild(label);
@@ -95,6 +96,7 @@ function collectSongs(genreIndexes) {
 
     for (let a = 0; a < artists.length; a++) {
       const artistName = artists[a][NAME];
+      console.log(artistName);
       const artistSongs = artists[a][ITEMS];
 
       for (let s = 0; s < artistSongs.length; s++) {
@@ -178,6 +180,7 @@ function renderPlaylist(playlist) {
  * and stops the number input from going above that.
  */
 function updateAvailableInfo() {
+//  console.log(collectSongs);
   const total = collectSongs(getSelectedGenres()).length;
   availableInfoEl.textContent = total + " unique songs available in the selected genres.";
   trackCountEl.max = Math.max(total, 1);
