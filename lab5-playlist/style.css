@@ -1,0 +1,180 @@
+/* Simple, clean styling for the playlist generator */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f3f1ec;
+  color: #222;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 16px 48px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.subtitle {
+  margin: 4px 0 24px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+
+.controls {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+legend {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.genre-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Each genre checkbox is styled like a "chip" */
+.genre-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.genre-chip:has(input:checked) {
+  background: #1f6f5c;
+  border-color: #1f6f5c;
+  color: #fff;
+}
+
+.small-buttons {
+  margin-top: 8px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #1f6f5c;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 12px;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+
+input[type="number"] {
+  width: 90px;
+  padding: 6px 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.hint {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.generate-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #1f6f5c;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.generate-btn:hover {
+  background: #185a4a;
+}
+
+/* ---------- Output ---------- */
+
+.output {
+  margin-top: 24px;
+}
+
+.output h2 {
+  margin-bottom: 4px;
+}
+
+.message {
+  color: #555;
+  margin-top: 0;
+}
+
+.message.warning {
+  color: #a5492a;
+}
+
+.playlist {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: track;
+}
+
+.playlist li {
+  counter-increment: track;
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 6px;
+}
+
+.playlist li::before {
+  content: counter(track);
+  color: #999;
+  font-variant-numeric: tabular-nums;
+}
+
+.song {
+  font-weight: 600;
+}
+
+.artist {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.tag {
+  font-size: 0.75rem;
+  background: #e8efe9;
+  color: #1f6f5c;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlist Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Playlist Generator</h1>
+    </header>
+
+    <!-- Controls: the user picks genres and how many tracks they want -->
+    <section class="controls">
+      <fieldset>
+        <legend>1. Choose genres</legend>
+        <!-- The checkboxes are created by script.js from the library array -->
+        <div id="genreList" class="genre-list"></div>
+        <div class="small-buttons">
+          <button type="button" id="selectAllBtn" class="link-btn">Select all</button>
+          <button type="button" id="clearAllBtn" class="link-btn">Clear</button>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Number of tracks</legend>
+        <input type="number" id="trackCount" min="1" value="8">
+        <p id="availableInfo" class="hint"></p>
+      </fieldset>
+
+      <button type="button" id="generateBtn" class="generate-btn">Generate playlist</button>
+    </section>
+
+
+    <section class="output">
+      <h2 id="playlistTitle">Your playlist</h2>
+      <p id="message" class="message">Choose some genres and click Generate playlist.</p>
+      <ol id="playlist" class="playlist"></ol>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
